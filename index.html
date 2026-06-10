@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cinematic portfolio — design, code, and creative direction." />
+
+    <title>Portfolio — Creative Developer</title>
+
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+
+    <!-- ===================== THREE.JS CANVAS ===================== -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- ===================== CUSTOM CURSOR ===================== -->
+    <div id="cursor" class="cursor">
+      <div class="cursor__dot"></div>
+      <div class="cursor__ring"></div>
+    </div>
+
+    <!-- ===================== LOADER ===================== -->
+    <div id="loader" class="loader">
+      <div class="loader__inner">
+        <div class="loader__bar"></div>
+        <span class="loader__text">0%</span>
+      </div>
+    </div>
+
+    <!-- ===================== NAVIGATION ===================== -->
+    <header id="header" class="header">
+      <a href="#hero" class="header__logo" aria-label="Home">
+        <span class="header__logo-mark">◆</span>
+        <span class="header__logo-text">FOLIO</span>
+      </a>
+
+      <nav class="header__nav" id="main-nav" aria-label="Main navigation">
+        <a href="#work" class="header__link" data-nav>Work</a>
+        <a href="#about" class="header__link" data-nav>About</a>
+        <a href="#contact" class="header__link" data-nav>Contact</a>
+      </nav>
+
+      <button id="menu-toggle" class="header__menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <!-- ===================== MOBILE MENU ===================== -->
+    <div id="mobile-menu" class="mobile-menu">
+      <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+        <a href="#work" class="mobile-menu__link" data-mobile-nav>Work</a>
+        <a href="#about" class="mobile-menu__link" data-mobile-nav>About</a>
+        <a href="#contact" class="mobile-menu__link" data-mobile-nav>Contact</a>
+      </nav>
+    </div>
+
+    <!-- ===================== MAIN CONTENT ===================== -->
+    <main id="smooth-content">
+
+      <!-- HERO -->
+      <section id="hero" class="section hero">
+        <div class="hero__content">
+          <p class="hero__tag" data-reveal>Creative Developer &amp; Designer</p>
+          <h1 class="hero__title" data-reveal>
+            <span class="hero__line">Crafting</span>
+            <span class="hero__line">Digital</span>
+            <span class="hero__line hero__line--accent">Experiences</span>
+          </h1>
+          <p class="hero__sub" data-reveal>
+            Blending design, motion, and code to build<br />
+            immersive interfaces that captivate.
+          </p>
+        </div>
+
+        <div class="hero__scroll-indicator" data-reveal>
+          <span>Scroll</span>
+          <div class="hero__scroll-line"></div>
+        </div>
+      </section>
+
+      <!-- MARQUEE -->
+      <section class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Frontend Development</span>
+          <span>◆</span>
+          <span>UI/UX Design</span>
+          <span>◆</span>
+          <span>Creative Direction</span>
+          <span>◆</span>
+          <span>Motion Graphics</span>
+          <span>◆</span>
+          <span>Frontend Development</span>
+          <span>◆</span>
+          <span>UI/UX Design</span>
+          <span>◆</span>
+          <span>Creative Direction</span>
+          <span>◆</span>
+          <span>Motion Graphics</span>
+          <span>◆</span>
+        </div>
+      </section>
+
+      <!-- WORK / PROJECTS -->
+      <section id="work" class="section work">
+        <header class="section__header">
+          <span class="section__tag" data-reveal>Selected Projects</span>
+          <h2 class="section__title" data-reveal>Work</h2>
+        </header>
+
+        <div class="work__grid">
+
+          <article class="work__card" data-reveal data-cursor-text="View">
+            <div class="work__card-img">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80" alt="Abstract 3D project" loading="lazy" />
+            </div>
+            <div class="work__card-info">
+              <h3 class="work__card-title">Nebula Interface</h3>
+              <p class="work__card-category">Web Design · Development</p>
+            </div>
+          </article>
+
+          <article class="work__card" data-reveal data-cursor-text="View">
+            <div class="work__card-img">
+              <img src="https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&q=80" alt="React dashboard" loading="lazy" />
+            </div>
+            <div class="work__card-info">
+              <h3 class="work__card-title">Pulse Dashboard</h3>
+              <p class="work__card-category">UI/UX · Frontend</p>
+            </div>
+          </article>
+
+          <article class="work__card" data-reveal data-cursor-text="View">
+            <div class="work__card-img">
+              <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80" alt="Creative branding" loading="lazy" />
+            </div>
+            <div class="work__card-info">
+              <h3 class="work__card-title">Prism Branding</h3>
+              <p class="work__card-category">Branding · Motion</p>
+            </div>
+          </article>
+
+          <article class="work__card" data-reveal data-cursor-text="View">
+            <div class="work__card-img">
+              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80" alt="Retro tech project" loading="lazy" />
+            </div>
+            <div class="work__card-info">
+              <h3 class="work__card-title">Synthwave App</h3>
+              <p class="work__card-category">Creative Dev · WebGL</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section about">
+        <header class="section__header">
+          <span class="section__tag" data-reveal>Who I Am</span>
+          <h2 class="section__title" data-reveal>About</h2>
+        </header>
+
+        <div class="about__content">
+          <div class="about__text" data-reveal>
+            <p>
+              I'm a creative developer focused on building immersive digital experiences
+              at the intersection of design and technology. With a passion for motion,
+              interaction, and visual storytelling, I craft interfaces that feel alive.
+            </p>
+            <p>
+              My toolkit spans frontend engineering, creative coding, and UI/UX design —
+              always pushing the boundaries of what's possible on the web.
+            </p>
+          </div>
+
+          <div class="about__stats">
+            <div class="about__stat" data-reveal>
+              <span class="about__stat-num" data-count="5">0</span>
+              <span class="about__stat-label">Years Experience</span>
+            </div>
+            <div class="about__stat" data-reveal>
+              <span class="about__stat-num" data-count="40">0</span>
+              <span class="about__stat-label">Projects Delivered</span>
+            </div>
+            <div class="about__stat" data-reveal>
+              <span class="about__stat-num" data-count="20">0</span>
+              <span class="about__stat-label">Happy Clients</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__skills">
+          <div class="about__skill" data-reveal>JavaScript</div>
+          <div class="about__skill" data-reveal>Three.js</div>
+          <div class="about__skill" data-reveal>GSAP</div>
+          <div class="about__skill" data-reveal>React</div>
+          <div class="about__skill" data-reveal>WebGL</div>
+          <div class="about__skill" data-reveal>Figma</div>
+          <div class="about__skill" data-reveal>CSS / SASS</div>
+          <div class="about__skill" data-reveal>Node.js</div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section contact">
+        <div class="contact__content">
+          <span class="section__tag" data-reveal>Get in Touch</span>
+          <h2 class="contact__title" data-reveal>
+            Let's create<br />something <em>great</em>.
+          </h2>
+          <a href="mailto:hello@portfolio.dev" class="contact__cta" data-reveal data-cursor-text="Send">
+            hello@portfolio.dev
+          </a>
+
+          <div class="contact__socials" data-reveal>
+            <a href="#" class="contact__social" aria-label="GitHub" data-cursor-text="↗">GitHub</a>
+            <a href="#" class="contact__social" aria-label="LinkedIn" data-cursor-text="↗">LinkedIn</a>
+            <a href="#" class="contact__social" aria-label="Twitter" data-cursor-text="↗">Twitter</a>
+            <a href="#" class="contact__social" aria-label="Dribbble" data-cursor-text="↗">Dribbble</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <span class="footer__copy">© 2026 — Designed &amp; Developed with ♥</span>
+        <a href="#hero" class="footer__top" data-cursor-text="↑">Back to Top</a>
+      </footer>
+
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
