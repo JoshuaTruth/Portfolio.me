@@ -10,7 +10,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="/src/style.css" />
   </head>
@@ -19,17 +19,27 @@
     <!-- ===================== THREE.JS CANVAS ===================== -->
     <canvas id="bg-canvas"></canvas>
 
+    <!-- ===================== NOISE OVERLAY ===================== -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
     <!-- ===================== CUSTOM CURSOR ===================== -->
     <div id="cursor" class="cursor">
       <div class="cursor__dot"></div>
       <div class="cursor__ring"></div>
+      <span class="cursor__label"></span>
     </div>
 
     <!-- ===================== LOADER ===================== -->
     <div id="loader" class="loader">
       <div class="loader__inner">
-        <div class="loader__bar"></div>
-        <span class="loader__text">0%</span>
+        <span class="loader__logo">◆ FOLIO</span>
+        <div class="loader__bar-track">
+          <div class="loader__bar"></div>
+        </div>
+        <div class="loader__bottom">
+          <span class="loader__text">0</span>
+          <span class="loader__tagline">Loading Experience</span>
+        </div>
       </div>
     </div>
 
@@ -41,9 +51,9 @@
       </a>
 
       <nav class="header__nav" id="main-nav" aria-label="Main navigation">
-        <a href="#work" class="header__link" data-nav>Work</a>
-        <a href="#about" class="header__link" data-nav>About</a>
-        <a href="#contact" class="header__link" data-nav>Contact</a>
+        <a href="#work" class="header__link" data-nav><span class="header__link-index">01</span>Work</a>
+        <a href="#about" class="header__link" data-nav><span class="header__link-index">02</span>About</a>
+        <a href="#contact" class="header__link" data-nav><span class="header__link-index">03</span>Contact</a>
       </nav>
 
       <button id="menu-toggle" class="header__menu-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -54,9 +64,18 @@
     <!-- ===================== MOBILE MENU ===================== -->
     <div id="mobile-menu" class="mobile-menu">
       <nav class="mobile-menu__nav" aria-label="Mobile navigation">
-        <a href="#work" class="mobile-menu__link" data-mobile-nav>Work</a>
-        <a href="#about" class="mobile-menu__link" data-mobile-nav>About</a>
-        <a href="#contact" class="mobile-menu__link" data-mobile-nav>Contact</a>
+        <a href="#work" class="mobile-menu__link" data-mobile-nav>
+          <span class="mobile-menu__link-index">01</span>
+          <span class="mobile-menu__link-text">Work</span>
+        </a>
+        <a href="#about" class="mobile-menu__link" data-mobile-nav>
+          <span class="mobile-menu__link-index">02</span>
+          <span class="mobile-menu__link-text">About</span>
+        </a>
+        <a href="#contact" class="mobile-menu__link" data-mobile-nav>
+          <span class="mobile-menu__link-index">03</span>
+          <span class="mobile-menu__link-text">Contact</span>
+        </a>
       </nav>
     </div>
 
@@ -66,56 +85,81 @@
       <!-- HERO -->
       <section id="hero" class="section hero">
         <div class="hero__content">
-          <p class="hero__tag" data-reveal>Creative Developer &amp; Designer</p>
-          <h1 class="hero__title" data-reveal>
-            <span class="hero__line">Crafting</span>
-            <span class="hero__line">Digital</span>
-            <span class="hero__line hero__line--accent">Experiences</span>
+          <div class="hero__tag-wrapper" data-reveal>
+            <div class="hero__tag-line"></div>
+            <p class="hero__tag">Creative Developer & Designer</p>
+            <div class="hero__tag-line"></div>
+          </div>
+          <h1 class="hero__title">
+            <span class="hero__line" data-reveal data-reveal-delay="0.1">
+              <span class="hero__line-inner">Crafting</span>
+            </span>
+            <span class="hero__line" data-reveal data-reveal-delay="0.2">
+              <span class="hero__line-inner">Digital</span>
+            </span>
+            <span class="hero__line hero__line--accent" data-reveal data-reveal-delay="0.3">
+              <span class="hero__line-inner">Experiences</span>
+            </span>
           </h1>
-          <p class="hero__sub" data-reveal>
+          <p class="hero__sub" data-reveal data-reveal-delay="0.5">
             Blending design, motion, and code to build<br />
             immersive interfaces that captivate.
           </p>
         </div>
 
-        <div class="hero__scroll-indicator" data-reveal>
-          <span>Scroll</span>
+        <div class="hero__scroll-indicator" data-reveal data-reveal-delay="0.8">
+          <span>Scroll to explore</span>
           <div class="hero__scroll-line"></div>
         </div>
+
+        <!-- Floating ambient shapes -->
+        <div class="hero__float hero__float--1" aria-hidden="true"></div>
+        <div class="hero__float hero__float--2" aria-hidden="true"></div>
+        <div class="hero__float hero__float--3" aria-hidden="true"></div>
       </section>
 
       <!-- MARQUEE -->
       <section class="marquee" aria-hidden="true">
         <div class="marquee__track">
           <span>Frontend Development</span>
-          <span>◆</span>
+          <span class="marquee__dot">◆</span>
           <span>UI/UX Design</span>
-          <span>◆</span>
+          <span class="marquee__dot">◆</span>
           <span>Creative Direction</span>
-          <span>◆</span>
+          <span class="marquee__dot">◆</span>
           <span>Motion Graphics</span>
-          <span>◆</span>
+          <span class="marquee__dot">◆</span>
           <span>Frontend Development</span>
-          <span>◆</span>
+          <span class="marquee__dot">◆</span>
           <span>UI/UX Design</span>
-          <span>◆</span>
+          <span class="marquee__dot">◆</span>
           <span>Creative Direction</span>
-          <span>◆</span>
+          <span class="marquee__dot">◆</span>
           <span>Motion Graphics</span>
-          <span>◆</span>
+          <span class="marquee__dot">◆</span>
         </div>
       </section>
 
       <!-- WORK / PROJECTS -->
       <section id="work" class="section work">
         <header class="section__header">
-          <span class="section__tag" data-reveal>Selected Projects</span>
-          <h2 class="section__title" data-reveal>Work</h2>
+          <div class="section__header-row">
+            <div>
+              <span class="section__tag" data-reveal>( Selected Projects )</span>
+              <h2 class="section__title" data-reveal>Work</h2>
+            </div>
+            <p class="section__header-desc" data-reveal>
+              A curated collection of projects where design<br />
+              meets engineering excellence.
+            </p>
+          </div>
+          <div class="section__divider" data-reveal></div>
         </header>
 
         <div class="work__grid">
 
-          <article class="work__card" data-reveal data-cursor-text="View">
+          <article class="work__card" data-cursor-text="View Project">
+            <div class="work__card-number">01</div>
             <div class="work__card-img">
               <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80" alt="Abstract 3D project" loading="lazy" />
             </div>
@@ -123,9 +167,11 @@
               <h3 class="work__card-title">Nebula Interface</h3>
               <p class="work__card-category">Web Design · Development</p>
             </div>
+            <div class="work__card-shine"></div>
           </article>
 
-          <article class="work__card" data-reveal data-cursor-text="View">
+          <article class="work__card" data-cursor-text="View Project">
+            <div class="work__card-number">02</div>
             <div class="work__card-img">
               <img src="https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&q=80" alt="React dashboard" loading="lazy" />
             </div>
@@ -133,9 +179,11 @@
               <h3 class="work__card-title">Pulse Dashboard</h3>
               <p class="work__card-category">UI/UX · Frontend</p>
             </div>
+            <div class="work__card-shine"></div>
           </article>
 
-          <article class="work__card" data-reveal data-cursor-text="View">
+          <article class="work__card" data-cursor-text="View Project">
+            <div class="work__card-number">03</div>
             <div class="work__card-img">
               <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80" alt="Creative branding" loading="lazy" />
             </div>
@@ -143,9 +191,11 @@
               <h3 class="work__card-title">Prism Branding</h3>
               <p class="work__card-category">Branding · Motion</p>
             </div>
+            <div class="work__card-shine"></div>
           </article>
 
-          <article class="work__card" data-reveal data-cursor-text="View">
+          <article class="work__card" data-cursor-text="View Project">
+            <div class="work__card-number">04</div>
             <div class="work__card-img">
               <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80" alt="Retro tech project" loading="lazy" />
             </div>
@@ -153,6 +203,7 @@
               <h3 class="work__card-title">Synthwave App</h3>
               <p class="work__card-category">Creative Dev · WebGL</p>
             </div>
+            <div class="work__card-shine"></div>
           </article>
 
         </div>
@@ -161,40 +212,46 @@
       <!-- ABOUT -->
       <section id="about" class="section about">
         <header class="section__header">
-          <span class="section__tag" data-reveal>Who I Am</span>
-          <h2 class="section__title" data-reveal>About</h2>
+          <div class="section__header-row">
+            <div>
+              <span class="section__tag" data-reveal>( Who I Am )</span>
+              <h2 class="section__title" data-reveal>About</h2>
+            </div>
+          </div>
+          <div class="section__divider" data-reveal></div>
         </header>
 
         <div class="about__content">
           <div class="about__text" data-reveal>
-            <p>
+            <p class="about__text-lead">
               I'm a creative developer focused on building immersive digital experiences
-              at the intersection of design and technology. With a passion for motion,
-              interaction, and visual storytelling, I craft interfaces that feel alive.
+              at the intersection of design and technology.
             </p>
             <p>
-              My toolkit spans frontend engineering, creative coding, and UI/UX design —
-              always pushing the boundaries of what's possible on the web.
+              With a passion for motion, interaction, and visual storytelling,
+              I craft interfaces that feel alive. My toolkit spans frontend engineering,
+              creative coding, and UI/UX design — always pushing the boundaries
+              of what's possible on the web.
             </p>
           </div>
 
           <div class="about__stats">
             <div class="about__stat" data-reveal>
               <span class="about__stat-num" data-count="5">0</span>
-              <span class="about__stat-label">Years Experience</span>
+              <span class="about__stat-label">Years<br/>Experience</span>
             </div>
             <div class="about__stat" data-reveal>
               <span class="about__stat-num" data-count="40">0</span>
-              <span class="about__stat-label">Projects Delivered</span>
+              <span class="about__stat-label">Projects<br/>Delivered</span>
             </div>
             <div class="about__stat" data-reveal>
               <span class="about__stat-num" data-count="20">0</span>
-              <span class="about__stat-label">Happy Clients</span>
+              <span class="about__stat-label">Happy<br/>Clients</span>
             </div>
           </div>
         </div>
 
-        <div class="about__skills">
+        <div class="about__skills" data-reveal>
           <div class="about__skill" data-reveal>JavaScript</div>
           <div class="about__skill" data-reveal>Three.js</div>
           <div class="about__skill" data-reveal>GSAP</div>
@@ -209,19 +266,33 @@
       <!-- CONTACT -->
       <section id="contact" class="section contact">
         <div class="contact__content">
-          <span class="section__tag" data-reveal>Get in Touch</span>
+          <span class="section__tag" data-reveal>( Get in Touch )</span>
           <h2 class="contact__title" data-reveal>
-            Let's create<br />something <em>great</em>.
+            <span class="contact__title-line">Let's create</span>
+            <span class="contact__title-line">something <em>extraordinary</em>.</span>
           </h2>
-          <a href="mailto:hello@portfolio.dev" class="contact__cta" data-reveal data-cursor-text="Send">
-            hello@portfolio.dev
+          <a href="mailto:hello@portfolio.dev" class="contact__cta" data-reveal data-cursor-text="Send ↗">
+            <span class="contact__cta-text">hello@portfolio.dev</span>
+            <span class="contact__cta-arrow">↗</span>
           </a>
 
           <div class="contact__socials" data-reveal>
-            <a href="#" class="contact__social" aria-label="GitHub" data-cursor-text="↗">GitHub</a>
-            <a href="#" class="contact__social" aria-label="LinkedIn" data-cursor-text="↗">LinkedIn</a>
-            <a href="#" class="contact__social" aria-label="Twitter" data-cursor-text="↗">Twitter</a>
-            <a href="#" class="contact__social" aria-label="Dribbble" data-cursor-text="↗">Dribbble</a>
+            <a href="#" class="contact__social" aria-label="GitHub" data-cursor-text="↗">
+              <span class="contact__social-text">GitHub</span>
+              <span class="contact__social-line"></span>
+            </a>
+            <a href="#" class="contact__social" aria-label="LinkedIn" data-cursor-text="↗">
+              <span class="contact__social-text">LinkedIn</span>
+              <span class="contact__social-line"></span>
+            </a>
+            <a href="#" class="contact__social" aria-label="Twitter" data-cursor-text="↗">
+              <span class="contact__social-text">Twitter</span>
+              <span class="contact__social-line"></span>
+            </a>
+            <a href="#" class="contact__social" aria-label="Dribbble" data-cursor-text="↗">
+              <span class="contact__social-text">Dribbble</span>
+              <span class="contact__social-line"></span>
+            </a>
           </div>
         </div>
       </section>
@@ -229,6 +300,7 @@
       <!-- FOOTER -->
       <footer class="footer">
         <span class="footer__copy">© 2026 — Designed &amp; Developed with ♥</span>
+        <span class="footer__time" id="footer-time"></span>
         <a href="#hero" class="footer__top" data-cursor-text="↑">Back to Top</a>
       </footer>
 
