@@ -3,309 +3,398 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Cinematic portfolio — design, code, and creative direction." />
+    <meta
+      name="description"
+      content="Rwendeire Joshua Truth — UI/UX Designer, CS Student, and Digital Product Builder based in Mbarara, Uganda."
+    />
 
-    <title>Portfolio — Creative Developer</title>
+    <title>Rwendeire Joshua Truth — UI/UX Designer</title>
 
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div id="cursor-dot" aria-hidden="true"></div>
 
-    <!-- ===================== THREE.JS CANVAS ===================== -->
-    <canvas id="bg-canvas"></canvas>
-
-    <!-- ===================== NOISE OVERLAY ===================== -->
-    <div class="noise-overlay" aria-hidden="true"></div>
-
-    <!-- ===================== CUSTOM CURSOR ===================== -->
-    <div id="cursor" class="cursor">
-      <div class="cursor__dot"></div>
-      <div class="cursor__ring"></div>
-      <span class="cursor__label"></span>
-    </div>
-
-    <!-- ===================== LOADER ===================== -->
-    <div id="loader" class="loader">
-      <div class="loader__inner">
-        <span class="loader__logo">◆ FOLIO</span>
-        <div class="loader__bar-track">
-          <div class="loader__bar"></div>
-        </div>
-        <div class="loader__bottom">
-          <span class="loader__text">0</span>
-          <span class="loader__tagline">Loading Experience</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===================== NAVIGATION ===================== -->
+    <!-- Navigation -->
     <header id="header" class="header">
-      <a href="#hero" class="header__logo" aria-label="Home">
-        <span class="header__logo-mark">◆</span>
-        <span class="header__logo-text">FOLIO</span>
-      </a>
+      <a href="#hero" class="header__logo" aria-label="Home">JT</a>
 
       <nav class="header__nav" id="main-nav" aria-label="Main navigation">
-        <a href="#work" class="header__link" data-nav><span class="header__link-index">01</span>Work</a>
-        <a href="#about" class="header__link" data-nav><span class="header__link-index">02</span>About</a>
-        <a href="#contact" class="header__link" data-nav><span class="header__link-index">03</span>Contact</a>
+        <a href="#about" class="header__link">About</a>
+        <a href="#work" class="header__link">Work</a>
+        <a href="#skills" class="header__link">Skills</a>
+        <a href="#experience" class="header__link">Experience</a>
+        <a href="#contact" class="header__link">Contact</a>
       </nav>
 
-      <button id="menu-toggle" class="header__menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span>
+      <button
+        id="menu-toggle"
+        class="header__menu-toggle"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </header>
 
-    <!-- ===================== MOBILE MENU ===================== -->
-    <div id="mobile-menu" class="mobile-menu">
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
       <nav class="mobile-menu__nav" aria-label="Mobile navigation">
-        <a href="#work" class="mobile-menu__link" data-mobile-nav>
-          <span class="mobile-menu__link-index">01</span>
-          <span class="mobile-menu__link-text">Work</span>
-        </a>
-        <a href="#about" class="mobile-menu__link" data-mobile-nav>
-          <span class="mobile-menu__link-index">02</span>
-          <span class="mobile-menu__link-text">About</span>
-        </a>
-        <a href="#contact" class="mobile-menu__link" data-mobile-nav>
-          <span class="mobile-menu__link-index">03</span>
-          <span class="mobile-menu__link-text">Contact</span>
-        </a>
+        <a href="#about" class="mobile-menu__link">About</a>
+        <a href="#work" class="mobile-menu__link">Work</a>
+        <a href="#skills" class="mobile-menu__link">Skills</a>
+        <a href="#experience" class="mobile-menu__link">Experience</a>
+        <a href="#contact" class="mobile-menu__link">Contact</a>
       </nav>
     </div>
 
-    <!-- ===================== MAIN CONTENT ===================== -->
-    <main id="smooth-content">
-
-      <!-- HERO -->
+    <main>
+      <!-- Hero -->
       <section id="hero" class="section hero">
-        <div class="hero__content">
-          <div class="hero__tag-wrapper" data-reveal>
-            <div class="hero__tag-line"></div>
-            <p class="hero__tag">Creative Developer & Designer</p>
-            <div class="hero__tag-line"></div>
+        <div class="hero__inner">
+          <div class="hero__portrait-wrap" data-fade>
+            <div class="portrait portrait--circle portrait--hero">
+              <img
+                src="/portrait.jpg"
+                alt="Rwendeire Joshua Truth"
+                class="portrait__img"
+                width="320"
+                height="320"
+              />
+              <span class="portrait__initials" aria-hidden="true">JT</span>
+            </div>
           </div>
-          <h1 class="hero__title">
-            <span class="hero__line" data-reveal data-reveal-delay="0.1">
-              <span class="hero__line-inner">Crafting</span>
-            </span>
-            <span class="hero__line" data-reveal data-reveal-delay="0.2">
-              <span class="hero__line-inner">Digital</span>
-            </span>
-            <span class="hero__line hero__line--accent" data-reveal data-reveal-delay="0.3">
-              <span class="hero__line-inner">Experiences</span>
-            </span>
-          </h1>
-          <p class="hero__sub" data-reveal data-reveal-delay="0.5">
-            Blending design, motion, and code to build<br />
-            immersive interfaces that captivate.
+
+          <div class="hero__content">
+            <h1 class="hero__name" data-fade>Rwendeire Joshua Truth</h1>
+            <p class="hero__subtitle" data-fade>
+              UI/UX Designer · CS Student · Digital Product Builder
+            </p>
+            <p class="hero__bio" data-fade>
+              I design clean, functional digital products and build systems that solve
+              real problems in Uganda and beyond.
+            </p>
+            <div class="hero__actions" data-fade>
+              <a href="#work" class="btn btn--primary">View My Work</a>
+              <a href="#contact" class="btn btn--secondary">Get In Touch</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section about">
+        <h2 class="section__title" data-fade>About Me</h2>
+
+        <div class="about__inner">
+          <div class="about__portrait-wrap" data-fade>
+            <div class="portrait portrait--rounded portrait--about">
+              <img
+                src="/portrait.jpg"
+                alt="Rwendeire Joshua Truth"
+                class="portrait__img"
+                width="260"
+                height="300"
+              />
+              <span class="portrait__initials" aria-hidden="true">JT</span>
+            </div>
+          </div>
+
+          <div class="about__content">
+            <div class="about__text" data-fade>
+              <p>
+                I'm a second-year Computer Science student at Mbarara University of
+                Science and Technology (MUST), Uganda. I combine technical foundations
+                with practical UI/UX and digital product design experience — bridging
+                the gap between how things look and how they work.
+              </p>
+              <p>
+                I've delivered real client projects in health technology, e-commerce,
+                and media. I thrive in fast-paced environments and I'm deeply
+                motivated by Uganda's digital transformation opportunity.
+              </p>
+              <p>
+                Currently exploring fintech, digital health, and community-centred
+                tools.
+              </p>
+            </div>
+
+            <div class="skill-pills" data-fade>
+              <span class="skill-pill">Figma</span>
+              <span class="skill-pill">UI/UX Design</span>
+              <span class="skill-pill">Java</span>
+              <span class="skill-pill">MySQL</span>
+              <span class="skill-pill">HTML/CSS</span>
+              <span class="skill-pill">Cybersecurity</span>
+              <span class="skill-pill">Database Design</span>
+              <span class="skill-pill">Problem Solving</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="work" class="section projects">
+        <h2 class="section__title" data-fade>Selected Work</h2>
+
+        <div class="projects__grid">
+          <article class="project-card" data-fade>
+            <div class="project-card__header">
+              <h3 class="project-card__name">HealthDesk</h3>
+              <span class="project-card__tag">Health Tech</span>
+            </div>
+            <p class="project-card__role">Lead UI/UX Designer · Ever-healthy (via PulseCode Uganda)</p>
+            <p class="project-card__desc">
+              End-to-end UI/UX design for a web-based point-of-sale and inventory
+              management system for a Ugandan medical products outlet. Solved manual,
+              error-prone stock and sales tracking.
+            </p>
+            <p class="project-card__tools"><strong>Tools:</strong> Figma, MySQL</p>
+            <a
+              href="https://www.figma.com/design/oA3DoHAE3qCSxD6JwlSr8V/Ever-Healthy-Health-Desk?node-id=51-34&t=wWfgxN2waXwZxaAR-1"
+              class="project-card__link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on Figma ↗
+            </a>
+          </article>
+
+          <article class="project-card" data-fade>
+            <div class="project-card__header">
+              <h3 class="project-card__name">The Plug</h3>
+              <span class="project-card__tag">E-Commerce</span>
+            </div>
+            <p class="project-card__role">UI/UX Designer</p>
+            <p class="project-card__desc">
+              A hyperlocal platform enabling local vendors to set up digital storefronts
+              and connect with nearby customers. Designed intuitive onboarding flows to
+              reduce friction for non-technical shop owners.
+            </p>
+            <p class="project-card__tools"><strong>Tools:</strong> Figma</p>
+            <a
+              href="https://www.figma.com/design/8mcpKU17LBFEvzJDyHwB74/The-PLUG-1.1?node-id=20-16&t=bFCf5USQGDuOsIjm-1"
+              class="project-card__link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on Figma ↗
+            </a>
+          </article>
+
+          <article class="project-card" data-fade>
+            <div class="project-card__header">
+              <h3 class="project-card__name">Bible Banter</h3>
+              <span class="project-card__tag">EdTech</span>
+            </div>
+            <p class="project-card__role">UI/UX Designer</p>
+            <p class="project-card__desc">
+              A mobile-first interactive app helping Christians engage with Scripture
+              and enabling pastors to confirm sermon comprehension through gamified
+              quiz flows.
+            </p>
+            <p class="project-card__tools"><strong>Tools:</strong> Figma</p>
+            <a
+              href="https://www.figma.com/design/bg84FyaDY6lwWkr1pfFoij/Bible-banter?node-id=0-1&t=o1PGBNj7MeBWkbrp-1"
+              class="project-card__link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on Figma ↗
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="section skills">
+        <h2 class="section__title" data-fade>What I Bring</h2>
+
+        <div class="skills__grid">
+          <div class="skills__category" data-fade>
+            <h3 class="skills__category-title">UI/UX Design</h3>
+            <p class="skills__category-list">
+              Figma, Wireframing, Prototyping, Design Systems
+            </p>
+          </div>
+
+          <div class="skills__category" data-fade>
+            <h3 class="skills__category-title">Development</h3>
+            <p class="skills__category-list">
+              Java, HTML, CSS, JavaScript, SQL
+            </p>
+          </div>
+
+          <div class="skills__category" data-fade>
+            <h3 class="skills__category-title">Database Systems</h3>
+            <p class="skills__category-list">
+              MySQL, ERD Modeling, Normalization
+            </p>
+          </div>
+
+          <div class="skills__category" data-fade>
+            <h3 class="skills__category-title">Cybersecurity</h3>
+            <p class="skills__category-list">
+              CIA Triad, OSI/TCP-IP Model, Auth Principles
+            </p>
+          </div>
+
+          <div class="skills__category" data-fade>
+            <h3 class="skills__category-title">Collaboration</h3>
+            <p class="skills__category-list">
+              Git, Canva, Google Workspace
+            </p>
+          </div>
+
+          <div class="skills__category" data-fade>
+            <h3 class="skills__category-title">Research</h3>
+            <p class="skills__category-list">
+              Problem Analysis, Requirements Gathering, User Research
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="section experience">
+        <h2 class="section__title" data-fade>Experience</h2>
+
+        <div class="timeline">
+          <article class="timeline__item" data-fade>
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <h3 class="timeline__title">UI/UX Designer &amp; Brand Consultant</h3>
+              <p class="timeline__org">EMD Uganda</p>
+              <p class="timeline__period">2024 – Present</p>
+              <p class="timeline__desc">
+                Delivered UI/UX and branding work for a client-facing digital
+                engagement. Managed full design lifecycle from requirements gathering
+                through to final delivery.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item" data-fade>
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Freelance UI/UX Designer</h3>
+              <p class="timeline__org">Herald City Media, Kampala</p>
+              <p class="timeline__period">2024</p>
+              <p class="timeline__desc">
+                Designed a luxury wedding and events packages document for a
+                Kampala-based photography and film business. Translated brand
+                guidelines into polished editorial design.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item" data-fade>
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Academic Project Developer</h3>
+              <p class="timeline__org">MUST — Computer Science Department</p>
+              <p class="timeline__period">2023 – 2025</p>
+              <p class="timeline__desc">
+                Built database-driven systems using MySQL and Java. Applied ERD
+                modeling and normalization principles. Moved from problem analysis to
+                working prototypes on academic problem statements.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education" class="section education">
+        <h2 class="section__title" data-fade>Education</h2>
+
+        <div class="education__card" data-fade>
+          <h3 class="education__degree">BSc Computer Science</h3>
+          <p class="education__institution">
+            Mbarara University of Science &amp; Technology (MUST)
+          </p>
+          <p class="education__graduation">Expected Graduation: 2027</p>
+          <p class="education__coursework">
+            <strong>Relevant Coursework:</strong>
+            Data Structures &amp; Algorithms · Database Systems · OOP · Computer
+            Networks · Cybersecurity Fundamentals · Systems Analysis &amp; Design ·
+            Human-Computer Interaction
           </p>
         </div>
-
-        <div class="hero__scroll-indicator" data-reveal data-reveal-delay="0.8">
-          <span>Scroll to explore</span>
-          <div class="hero__scroll-line"></div>
-        </div>
-
-        <!-- Floating ambient shapes -->
-        <div class="hero__float hero__float--1" aria-hidden="true"></div>
-        <div class="hero__float hero__float--2" aria-hidden="true"></div>
-        <div class="hero__float hero__float--3" aria-hidden="true"></div>
       </section>
 
-      <!-- MARQUEE -->
-      <section class="marquee" aria-hidden="true">
-        <div class="marquee__track">
-          <span>Frontend Development</span>
-          <span class="marquee__dot">◆</span>
-          <span>UI/UX Design</span>
-          <span class="marquee__dot">◆</span>
-          <span>Creative Direction</span>
-          <span class="marquee__dot">◆</span>
-          <span>Motion Graphics</span>
-          <span class="marquee__dot">◆</span>
-          <span>Frontend Development</span>
-          <span class="marquee__dot">◆</span>
-          <span>UI/UX Design</span>
-          <span class="marquee__dot">◆</span>
-          <span>Creative Direction</span>
-          <span class="marquee__dot">◆</span>
-          <span>Motion Graphics</span>
-          <span class="marquee__dot">◆</span>
-        </div>
-      </section>
-
-      <!-- WORK / PROJECTS -->
-      <section id="work" class="section work">
-        <header class="section__header">
-          <div class="section__header-row">
-            <div>
-              <span class="section__tag" data-reveal>( Selected Projects )</span>
-              <h2 class="section__title" data-reveal>Work</h2>
-            </div>
-            <p class="section__header-desc" data-reveal>
-              A curated collection of projects where design<br />
-              meets engineering excellence.
-            </p>
-          </div>
-          <div class="section__divider" data-reveal></div>
-        </header>
-
-        <div class="work__grid">
-
-          <article class="work__card" data-cursor-text="View Project">
-            <div class="work__card-number">01</div>
-            <div class="work__card-img">
-              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80" alt="Abstract 3D project" loading="lazy" />
-            </div>
-            <div class="work__card-info">
-              <h3 class="work__card-title">Nebula Interface</h3>
-              <p class="work__card-category">Web Design · Development</p>
-            </div>
-            <div class="work__card-shine"></div>
-          </article>
-
-          <article class="work__card" data-cursor-text="View Project">
-            <div class="work__card-number">02</div>
-            <div class="work__card-img">
-              <img src="https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&q=80" alt="React dashboard" loading="lazy" />
-            </div>
-            <div class="work__card-info">
-              <h3 class="work__card-title">Pulse Dashboard</h3>
-              <p class="work__card-category">UI/UX · Frontend</p>
-            </div>
-            <div class="work__card-shine"></div>
-          </article>
-
-          <article class="work__card" data-cursor-text="View Project">
-            <div class="work__card-number">03</div>
-            <div class="work__card-img">
-              <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80" alt="Creative branding" loading="lazy" />
-            </div>
-            <div class="work__card-info">
-              <h3 class="work__card-title">Prism Branding</h3>
-              <p class="work__card-category">Branding · Motion</p>
-            </div>
-            <div class="work__card-shine"></div>
-          </article>
-
-          <article class="work__card" data-cursor-text="View Project">
-            <div class="work__card-number">04</div>
-            <div class="work__card-img">
-              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80" alt="Retro tech project" loading="lazy" />
-            </div>
-            <div class="work__card-info">
-              <h3 class="work__card-title">Synthwave App</h3>
-              <p class="work__card-category">Creative Dev · WebGL</p>
-            </div>
-            <div class="work__card-shine"></div>
-          </article>
-
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section id="about" class="section about">
-        <header class="section__header">
-          <div class="section__header-row">
-            <div>
-              <span class="section__tag" data-reveal>( Who I Am )</span>
-              <h2 class="section__title" data-reveal>About</h2>
-            </div>
-          </div>
-          <div class="section__divider" data-reveal></div>
-        </header>
-
-        <div class="about__content">
-          <div class="about__text" data-reveal>
-            <p class="about__text-lead">
-              I'm a creative developer focused on building immersive digital experiences
-              at the intersection of design and technology.
-            </p>
-            <p>
-              With a passion for motion, interaction, and visual storytelling,
-              I craft interfaces that feel alive. My toolkit spans frontend engineering,
-              creative coding, and UI/UX design — always pushing the boundaries
-              of what's possible on the web.
-            </p>
-          </div>
-
-          <div class="about__stats">
-            <div class="about__stat" data-reveal>
-              <span class="about__stat-num" data-count="5">0</span>
-              <span class="about__stat-label">Years<br/>Experience</span>
-            </div>
-            <div class="about__stat" data-reveal>
-              <span class="about__stat-num" data-count="40">0</span>
-              <span class="about__stat-label">Projects<br/>Delivered</span>
-            </div>
-            <div class="about__stat" data-reveal>
-              <span class="about__stat-num" data-count="20">0</span>
-              <span class="about__stat-label">Happy<br/>Clients</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="about__skills" data-reveal>
-          <div class="about__skill" data-reveal>JavaScript</div>
-          <div class="about__skill" data-reveal>Three.js</div>
-          <div class="about__skill" data-reveal>GSAP</div>
-          <div class="about__skill" data-reveal>React</div>
-          <div class="about__skill" data-reveal>WebGL</div>
-          <div class="about__skill" data-reveal>Figma</div>
-          <div class="about__skill" data-reveal>CSS / SASS</div>
-          <div class="about__skill" data-reveal>Node.js</div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
+      <!-- Contact -->
       <section id="contact" class="section contact">
-        <div class="contact__content">
-          <span class="section__tag" data-reveal>( Get in Touch )</span>
-          <h2 class="contact__title" data-reveal>
-            <span class="contact__title-line">Let's create</span>
-            <span class="contact__title-line">something <em>extraordinary</em>.</span>
-          </h2>
-          <a href="mailto:hello@portfolio.dev" class="contact__cta" data-reveal data-cursor-text="Send ↗">
-            <span class="contact__cta-text">hello@portfolio.dev</span>
-            <span class="contact__cta-arrow">↗</span>
-          </a>
+        <h2 class="section__title" data-fade>Let's Work Together</h2>
+        <p class="contact__intro" data-fade>
+          Open to freelance design projects, collaborations, and hackathon teams.
+        </p>
 
-          <div class="contact__socials" data-reveal>
-            <a href="#" class="contact__social" aria-label="GitHub" data-cursor-text="↗">
-              <span class="contact__social-text">GitHub</span>
-              <span class="contact__social-line"></span>
-            </a>
-            <a href="#" class="contact__social" aria-label="LinkedIn" data-cursor-text="↗">
-              <span class="contact__social-text">LinkedIn</span>
-              <span class="contact__social-line"></span>
-            </a>
-            <a href="#" class="contact__social" aria-label="Twitter" data-cursor-text="↗">
-              <span class="contact__social-text">Twitter</span>
-              <span class="contact__social-line"></span>
-            </a>
-            <a href="#" class="contact__social" aria-label="Dribbble" data-cursor-text="↗">
-              <span class="contact__social-text">Dribbble</span>
-              <span class="contact__social-line"></span>
-            </a>
+        <div class="contact__inner">
+          <div class="contact__info" data-fade>
+            <div class="contact__detail">
+              <span class="contact__label">Email</span>
+              <a href="mailto:rwendeirejoshuatruth@gmail.com">
+                rwendeirejoshuatruth@gmail.com
+              </a>
+            </div>
+            <div class="contact__detail">
+              <span class="contact__label">Phone</span>
+              <a href="tel:+256767301186">+256 767 301 186</a>
+            </div>
+            <div class="contact__detail">
+              <span class="contact__label">Location</span>
+              <span>Mbarara, Uganda</span>
+            </div>
           </div>
+
+          <form id="contact-form" class="contact__form" data-fade>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">Send</button>
+          </form>
         </div>
       </section>
-
-      <!-- FOOTER -->
-      <footer class="footer">
-        <span class="footer__copy">© 2026 — Designed &amp; Developed with ♥</span>
-        <span class="footer__time" id="footer-time"></span>
-        <a href="#hero" class="footer__top" data-cursor-text="↑">Back to Top</a>
-      </footer>
-
     </main>
 
+    <!-- Footer -->
+    <footer class="footer">
+      <span class="footer__copy">© 2025 Rwendeire Joshua Truth</span>
+      <a href="mailto:rwendeirejoshuatruth@gmail.com" class="footer__email">
+        rwendeirejoshuatruth@gmail.com
+      </a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
