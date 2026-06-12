@@ -21,7 +21,6 @@
   </head>
   <body>
     <canvas id="bg-canvas" aria-hidden="true"></canvas>
-    <div id="cursor-dot" aria-hidden="true"></div>
 
     <!-- Navigation -->
     <header id="header" class="header">
@@ -245,26 +244,6 @@
             </p>
           </div>
 
-          <div class="skills__category" data-fade>
-            <h3 class="skills__category-title">Development</h3>
-            <p class="skills__category-list">
-              Java, HTML, CSS, JavaScript, SQL
-            </p>
-          </div>
-
-          <div class="skills__category" data-fade>
-            <h3 class="skills__category-title">Database Systems</h3>
-            <p class="skills__category-list">
-              MySQL, ERD Modeling, Normalization
-            </p>
-          </div>
-
-          <div class="skills__category" data-fade>
-            <h3 class="skills__category-title">Cybersecurity</h3>
-            <p class="skills__category-list">
-              CIA Triad, OSI/TCP-IP Model, Auth Principles
-            </p>
-          </div>
 
           <div class="skills__category" data-fade>
             <h3 class="skills__category-title">Collaboration</h3>
@@ -273,12 +252,7 @@
             </p>
           </div>
 
-          <div class="skills__category" data-fade>
-            <h3 class="skills__category-title">Research</h3>
-            <p class="skills__category-list">
-              Problem Analysis, Requirements Gathering, User Research
-            </p>
-          </div>
+          
         </div>
         </div>
       </section>
@@ -303,19 +277,7 @@
             </div>
           </article>
 
-          <article class="timeline__item" data-fade>
-            <div class="timeline__marker" aria-hidden="true"></div>
-            <div class="timeline__content">
-              <h3 class="timeline__title">Freelance UI/UX Designer</h3>
-              <p class="timeline__org">Herald City Media, Kampala</p>
-              <p class="timeline__period">2024</p>
-              <p class="timeline__desc">
-                Designed a luxury wedding and events packages document for a
-                Kampala-based photography and film business. Translated brand
-                guidelines into polished editorial design.
-              </p>
-            </div>
-          </article>
+          
 
           <article class="timeline__item" data-fade>
             <div class="timeline__marker" aria-hidden="true"></div>
@@ -381,7 +343,25 @@
             </div>
           </div>
 
-          <form id="contact-form" class="contact__form" data-fade>
+          <form
+            id="contact-form"
+            class="contact__form"
+            data-fade
+            action="https://formsubmit.co/rwendeirejoshuatruth@gmail.com"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="New portfolio contact!" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input
+              type="text"
+              name="_honey"
+              class="form-honey"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+
             <div class="form-group">
               <label for="name">Name</label>
               <input type="text" id="name" name="name" required autocomplete="name" />
@@ -400,7 +380,8 @@
               <label for="message">Message</label>
               <textarea id="message" name="message" rows="5" required></textarea>
             </div>
-            <button type="submit" class="btn btn--primary btn--full">Send</button>
+            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+            <button type="submit" class="btn btn--primary btn--full">Send Message</button>
           </form>
         </div>
         </div>
