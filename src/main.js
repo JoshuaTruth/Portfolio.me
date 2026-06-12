@@ -15,41 +15,6 @@ function initPortraitFallback() {
   });
 }
 
-/* ---- Custom cursor ---- */
-function initCursor() {
-  if (window.matchMedia('(pointer: coarse)').matches) return;
-
-  const dot = document.getElementById('cursor-dot');
-  if (!dot) return;
-
-  document.body.classList.add('has-custom-cursor');
-
-  let targetX = 0;
-  let targetY = 0;
-  let currentX = 0;
-  let currentY = 0;
-
-  const interactive = 'a, button, .btn, input, textarea, label';
-
-  document.addEventListener('pointermove', (e) => {
-    targetX = e.clientX;
-    targetY = e.clientY;
-  }, { passive: true });
-
-  document.addEventListener('mouseover', (e) => {
-    document.body.classList.toggle('cursor--hover', !!e.target.closest(interactive));
-  });
-
-  const tick = () => {
-    currentX += (targetX - currentX) * 0.15;
-    currentY += (targetY - currentY) * 0.15;
-    dot.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
-    requestAnimationFrame(tick);
-  };
-
-  tick();
-}
-
 /* ---- Lenis smooth scroll ---- */
 function initLenis() {
   const Lenis = window.Lenis;
@@ -309,22 +274,66 @@ function initMobileMenu() {
   });
 }
 
-/* ---- Contact form ---- */
+/* ---- Contact form — FormSubmit → rwendeirejoshuatruth@gmail.com ---- */
 function initContactForm() {
   const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    const btn = form.querySelector('button[type="submit"]');
+    const defaultLabel = btn.textContent;
     const name = form.name.value.trim();
     const email = form.email.value.trim();
     const message = form.message.value.trim();
 
-    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
 
-    window.location.href = `mailto:rwendeirejoshuatruth@gmail.com?subject=${subject}&body=${body}`;
+    if (status) {
+      status.textContent = '';
+      status.className = 'form-status';
+    }
+
+    try {
+      const response = await fetch(
+        'https://formsubmit.co/ajax/rwendeirejoshuatruth@gmail.com',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            message,
+            _subject: `Portfolio inquiry from ${name}`,
+            _template: 'table',
+            _captcha: 'false',
+          }),
+        }
+      );
+
+      if (!response.ok) throw new Error('Send failed');
+
+      form.reset();
+      if (status) {
+        status.textContent = "Message sent! I'll get back to you soon.";
+        status.className = 'form-status form-status--success';
+      }
+    } catch {
+      if (status) {
+        status.textContent =
+          'Could not send right now. Please email rwendeirejoshuatruth@gmail.com directly.';
+        status.className = 'form-status form-status--error';
+      }
+    } finally {
+      btn.disabled = false;
+      btn.textContent = defaultLabel;
+    }
   });
 }
 
@@ -334,7 +343,6 @@ function init() {
   initThreeBackground();
   const lenis = initLenis();
   initGSAPAnimations();
-  initCursor();
   initHeader(lenis);
   initMobileMenu();
   initContactForm();
