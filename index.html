@@ -25,26 +25,28 @@
 
     <!-- Navigation -->
     <header id="header" class="header">
-      <a href="#hero" class="header__logo" aria-label="Home">JT</a>
+      <div class="container header__inner">
+        <a href="#hero" class="header__logo" aria-label="Home">JT</a>
 
-      <nav class="header__nav" id="main-nav" aria-label="Main navigation">
-        <a href="#about" class="header__link">About</a>
-        <a href="#work" class="header__link">Work</a>
-        <a href="#skills" class="header__link">Skills</a>
-        <a href="#experience" class="header__link">Experience</a>
-        <a href="#contact" class="header__link">Contact</a>
-      </nav>
+        <nav class="header__nav" id="main-nav" aria-label="Main navigation">
+          <a href="#about" class="header__link">About</a>
+          <a href="#work" class="header__link">Work</a>
+          <a href="#skills" class="header__link">Skills</a>
+          <a href="#experience" class="header__link">Experience</a>
+          <a href="#contact" class="header__link">Contact</a>
+        </nav>
 
-      <button
-        id="menu-toggle"
-        class="header__menu-toggle"
-        aria-label="Toggle menu"
-        aria-expanded="false"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <button
+          id="menu-toggle"
+          class="header__menu-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </header>
 
     <!-- Mobile menu -->
@@ -61,32 +63,42 @@
     <main>
       <!-- Hero -->
       <section id="hero" class="section hero">
-        <div class="hero__inner">
-          <div class="hero__portrait-wrap" data-fade>
-            <div class="portrait portrait--circle portrait--hero">
-              <img
-                src="/portrait.jpg"
-                alt="Rwendeire Joshua Truth"
-                class="portrait__img"
-                width="320"
-                height="320"
-              />
-              <span class="portrait__initials" aria-hidden="true">JT</span>
+        <div class="container">
+          <div class="hero__inner">
+            <div class="hero__portrait-wrap">
+              <div class="hero__portrait-glow" aria-hidden="true"></div>
+              <div class="hero__float-shape hero__float-shape--1" aria-hidden="true"></div>
+              <div class="hero__float-shape hero__float-shape--2" aria-hidden="true"></div>
+              <div class="portrait portrait--circle portrait--hero">
+                <img
+                  src="/portrait.jpg"
+                  alt="Rwendeire Joshua Truth"
+                  class="portrait__img"
+                  width="240"
+                  height="240"
+                />
+                <span class="portrait__initials" aria-hidden="true">JT</span>
+              </div>
             </div>
-          </div>
 
-          <div class="hero__content">
-            <h1 class="hero__name" data-fade>Rwendeire Joshua Truth</h1>
-            <p class="hero__subtitle" data-fade>
-              UI/UX Designer · CS Student · Digital Product Builder
-            </p>
-            <p class="hero__bio" data-fade>
-              I design clean, functional digital products and build systems that solve
-              real problems in Uganda and beyond.
-            </p>
-            <div class="hero__actions" data-fade>
-              <a href="#work" class="btn btn--primary">View My Work</a>
-              <a href="#contact" class="btn btn--secondary">Get In Touch</a>
+            <div class="hero__content">
+              <p class="hero__eyebrow">Portfolio · 2025</p>
+              <h1 class="hero__name">Rwendeire Joshua Truth</h1>
+              <p class="hero__subtitle">
+                UI/UX Designer · CS Student · Digital Product Builder
+              </p>
+              <p class="hero__bio">
+                I design clean, functional digital products and build systems that solve
+                real problems in Uganda and beyond.
+              </p>
+              <div class="hero__actions">
+                <a href="#work" class="btn btn--primary">
+                  <span>View My Work</span>
+                </a>
+                <a href="#contact" class="btn btn--secondary">
+                  <span>Get In Touch</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -94,6 +106,7 @@
 
       <!-- About -->
       <section id="about" class="section about">
+        <div class="container">
         <h2 class="section__title" data-fade>About Me</h2>
 
         <div class="about__inner">
@@ -141,10 +154,12 @@
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       <!-- Projects -->
-      <section id="work" class="section projects">
+      <section id="work" class="section projects section--alt">
+        <div class="container">
         <h2 class="section__title" data-fade>Selected Work</h2>
 
         <div class="projects__grid">
@@ -214,10 +229,12 @@
             </a>
           </article>
         </div>
+        </div>
       </section>
 
       <!-- Skills -->
       <section id="skills" class="section skills">
+        <div class="container">
         <h2 class="section__title" data-fade>What I Bring</h2>
 
         <div class="skills__grid">
@@ -263,10 +280,12 @@
             </p>
           </div>
         </div>
+        </div>
       </section>
 
       <!-- Experience -->
-      <section id="experience" class="section experience">
+      <section id="experience" class="section experience section--alt">
+        <div class="container">
         <h2 class="section__title" data-fade>Experience</h2>
 
         <div class="timeline">
@@ -312,10 +331,12 @@
             </div>
           </article>
         </div>
+        </div>
       </section>
 
       <!-- Education -->
       <section id="education" class="section education">
+        <div class="container">
         <h2 class="section__title" data-fade>Education</h2>
 
         <div class="education__card" data-fade>
@@ -331,10 +352,12 @@
             Human-Computer Interaction
           </p>
         </div>
+        </div>
       </section>
 
       <!-- Contact -->
-      <section id="contact" class="section contact">
+      <section id="contact" class="section contact section--alt">
+        <div class="container">
         <h2 class="section__title" data-fade>Let's Work Together</h2>
         <p class="contact__intro" data-fade>
           Open to freelance design projects, collaborations, and hackathon teams.
@@ -380,15 +403,18 @@
             <button type="submit" class="btn btn--primary btn--full">Send</button>
           </form>
         </div>
+        </div>
       </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-      <span class="footer__copy">© 2025 Rwendeire Joshua Truth</span>
-      <a href="mailto:rwendeirejoshuatruth@gmail.com" class="footer__email">
-        rwendeirejoshuatruth@gmail.com
-      </a>
+      <div class="container footer__inner">
+        <span class="footer__copy">© 2025 Rwendeire Joshua Truth</span>
+        <a href="mailto:rwendeirejoshuatruth@gmail.com" class="footer__email">
+          rwendeirejoshuatruth@gmail.com
+        </a>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>

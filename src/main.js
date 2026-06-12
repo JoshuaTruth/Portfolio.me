@@ -100,18 +100,69 @@ function initGSAPAnimations() {
   const once = { toggleActions: 'play none none none' };
 
   /* Hero — on load */
-  gsap.set(['.hero__name', '.hero__subtitle', '.hero__bio', '.hero__actions'], {
-    opacity: 0,
-    y: 32,
+  const heroTimeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  heroTimeline
+    .from('.hero__portrait-wrap', {
+      opacity: 0,
+      scale: 0.88,
+      duration: 1,
+    })
+    .from(
+      ['.hero__eyebrow', '.hero__name', '.hero__subtitle', '.hero__bio', '.hero__actions'],
+      {
+        opacity: 0,
+        y: 32,
+        duration: 0.9,
+        stagger: 0.12,
+      },
+      '-=0.6'
+    );
+
+  gsap.to('.hero__portrait-glow', {
+    scale: 1.08,
+    opacity: 0.85,
+    duration: 3,
+    repeat: -1,
+    yoyo: true,
+    ease: 'sine.inOut',
   });
 
-  gsap.to(['.hero__name', '.hero__subtitle', '.hero__bio', '.hero__actions'], {
-    opacity: 1,
-    y: 0,
-    duration: 0.9,
-    stagger: 0.12,
-    ease: 'power3.out',
-    delay: 0.2,
+  gsap.to('.portrait--hero', {
+    y: -10,
+    duration: 2.8,
+    repeat: -1,
+    yoyo: true,
+    ease: 'sine.inOut',
+  });
+
+  gsap.to('.hero__float-shape--1', {
+    y: -16,
+    x: 8,
+    rotation: 12,
+    duration: 4,
+    repeat: -1,
+    yoyo: true,
+    ease: 'sine.inOut',
+  });
+
+  gsap.to('.hero__float-shape--2', {
+    y: 12,
+    x: -6,
+    rotation: -10,
+    duration: 3.2,
+    repeat: -1,
+    yoyo: true,
+    ease: 'sine.inOut',
+  });
+
+  document.querySelectorAll('.btn').forEach((btn) => {
+    btn.addEventListener('mouseenter', () => {
+      gsap.to(btn, { scale: 1.03, duration: 0.25, ease: 'power2.out' });
+    });
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, { scale: 1, duration: 0.25, ease: 'power2.out' });
+    });
   });
 
   /* Section headings — clip-path reveal */
@@ -183,10 +234,9 @@ function initGSAPAnimations() {
       el.classList.contains('section__title') ||
       el.classList.contains('project-card') ||
       el.classList.contains('timeline__item') ||
-      el.classList.contains('hero__name') ||
-      el.classList.contains('hero__subtitle') ||
-      el.classList.contains('hero__bio') ||
-      el.classList.contains('hero__actions') ||
+      el.classList.contains('hero__eyebrow') ||
+      el.closest('.hero__portrait-wrap') ||
+      el.closest('.hero__content') ||
       el.closest('.skill-pills')
     ) {
       return;

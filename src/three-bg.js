@@ -44,12 +44,12 @@ export function initThreeBackground() {
         float n3 = cos(uv.x * 2.0 + uv.y * 2.5 + uTime * 0.05);
         float blend = (n1 + n2 + n3) / 3.0;
 
-        vec3 navy = vec3(0.106, 0.227, 0.420);
-        vec3 teal = vec3(0.059, 0.443, 0.451);
-        vec3 base = vec3(0.980, 0.984, 0.988);
+        vec3 primary = vec3(0.145, 0.388, 0.922);
+        vec3 accent = vec3(0.024, 0.714, 0.831);
+        vec3 base = vec3(0.973, 0.980, 0.988);
 
-        vec3 painted = mix(navy, teal, blend * 0.5 + 0.5);
-        vec3 color = mix(base, painted, 0.08);
+        vec3 painted = mix(primary, accent, blend * 0.5 + 0.5);
+        vec3 color = mix(base, painted, 0.09);
 
         gl_FragColor = vec4(color, 1.0);
       }
