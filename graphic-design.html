@@ -329,6 +329,7 @@
         font-size: 0.95rem;
         margin-bottom: var(--space-sm);
         transition: all 0.3s ease;
+        object-fit: cover;
       }
 
       .gd-gallery-image.social {
@@ -337,6 +338,10 @@
 
       .gd-gallery-image.art {
         background: #f0eef5;
+      }
+
+      .gd-gallery-image[src] {
+        background: transparent;
       }
 
       .gd-gallery-caption {
@@ -600,23 +605,110 @@
           <h2 class="gd-section__title">Social Media Designs</h2>
           <p class="gd-section__subtitle">Graphics built for engagement — for brands, events, and communities.</p>
 
-          <div class="gd-gallery-grid">
-            <!-- REPLACE: swap this placeholder div with an <img> tag when ready -->
-            <div class="gd-gallery-tile">
-              <div class="gd-gallery-image social">Social Media Design 1</div>
-              <p class="gd-gallery-caption">Placeholder — image coming soon</p>
+          <div class="gd-branding-grid">
+            <!-- Campaign Designs -->
+            <div class="gd-card" data-card="campaign">
+              <div class="gd-card__header" onclick="toggleCard(this)">
+                <div class="gd-card__info">
+                  <h3 class="gd-card__title">Campaign</h3>
+                  <p class="gd-card__description">Social media campaign designs and graphics.</p>
+                </div>
+                <div class="gd-card__toggle">›</div>
+              </div>
+
+              <div class="gd-card__content">
+                <div class="gd-card__body">
+                  <div class="gd-gallery-grid">
+                    <div class="gd-gallery-tile">
+                      <img src="/artworks/social-media/campaign/BLU.jpg" alt="Campaign Design - BLU" class="gd-gallery-image">
+                    </div>
+                    <div class="gd-gallery-tile">
+                      <img src="/artworks/social-media/campaign/glo.jpg" alt="Campaign Design - Glo" class="gd-gallery-image">
+                    </div>
+                    <div class="gd-gallery-tile">
+                      <img src="/artworks/social-media/campaign/gloria ninsiima.jpg" alt="Campaign Design - Gloria Ninsiima" class="gd-gallery-image">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <!-- REPLACE: swap this placeholder div with an <img> tag when ready -->
-            <div class="gd-gallery-tile">
-              <div class="gd-gallery-image social">Social Media Design 2</div>
-              <p class="gd-gallery-caption">Placeholder — image coming soon</p>
+            <!-- DivGlo Designs -->
+            <div class="gd-card" data-card="divglo">
+              <div class="gd-card__header" onclick="toggleCard(this)">
+                <div class="gd-card__info">
+                  <h3 class="gd-card__title">DivGlo</h3>
+                  <p class="gd-card__description">DivGlo brand social media designs.</p>
+                </div>
+                <div class="gd-card__toggle">›</div>
+              </div>
+
+              <div class="gd-card__content">
+                <div class="gd-card__body">
+                  <div class="gd-gallery-grid">
+                    <div class="gd-gallery-tile">
+                      <img src="/artworks/social-media/DivGlo/diglo.jpg" alt="DivGlo Design 1" class="gd-gallery-image">
+                    </div>
+                    <div class="gd-gallery-tile">
+                      <img src="/artworks/social-media/DivGlo/divglo.jpg" alt="DivGlo Design 2" class="gd-gallery-image">
+                    </div>
+                    <div class="gd-gallery-tile">
+                      <img src="/artworks/social-media/DivGlo/menu.jpg" alt="DivGlo Menu Design" class="gd-gallery-image">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <!-- REPLACE: swap this placeholder div with an <img> tag when ready -->
-            <div class="gd-gallery-tile">
-              <div class="gd-gallery-image social">Social Media Design 3</div>
-              <p class="gd-gallery-caption">Placeholder — image coming soon</p>
+            <!-- KFC Designs -->
+            <div class="gd-card" data-card="kfc">
+              <div class="gd-card__header" onclick="toggleCard(this)">
+                <div class="gd-card__info">
+                  <h3 class="gd-card__title">KFC</h3>
+                  <p class="gd-card__description">KFC promotional and social media designs.</p>
+                </div>
+                <div class="gd-card__toggle">›</div>
+              </div>
+
+              <div class="gd-card__content">
+                <div class="gd-card__body">
+                  <div class="gd-gallery-grid">
+                    <div class="gd-gallery-tile">
+                      <img src="/artworks/social-media/kfc/coca.jpg" alt="KFC Coca Design" class="gd-gallery-image">
+                    </div>
+                    <div class="gd-gallery-tile">
+                      <img src="/artworks/social-media/kfc/kfc v1.jpg" alt="KFC Design Version 1" class="gd-gallery-image">
+                    </div>
+                    <div class="gd-gallery-tile">
+                      <img src="/artworks/social-media/kfc/kfc v2.jpg" alt="KFC Design Version 2" class="gd-gallery-image">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Others -->
+            <div class="gd-card" data-card="others">
+              <div class="gd-card__header" onclick="toggleCard(this)">
+                <div class="gd-card__info">
+                  <h3 class="gd-card__title">Others</h3>
+                  <p class="gd-card__description">Additional social media and promotional designs.</p>
+                </div>
+                <div class="gd-card__toggle">›</div>
+              </div>
+
+              <div class="gd-card__content">
+                <div class="gd-card__body">
+                  <div class="gd-gallery-grid">
+                    <div class="gd-gallery-tile">
+                      <img src="/artworks/social-media/others/Aura.jpg" alt="Aura Design" class="gd-gallery-image">
+                    </div>
+                    <div class="gd-gallery-tile">
+                      <img src="/artworks/social-media/others/mg 1.jpg" alt="Other Design" class="gd-gallery-image">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -631,22 +723,20 @@
           <p class="gd-section__subtitle">Illustrations, visual concepts, and creative explorations.</p>
 
           <div class="gd-gallery-grid">
-            <!-- REPLACE: swap this placeholder div with an <img> tag when ready -->
             <div class="gd-gallery-tile">
-              <div class="gd-gallery-image art">Digital Art 1</div>
-              <p class="gd-gallery-caption">Placeholder — artwork coming soon</p>
+              <img src="/artworks/digital-art/babe 4.jpg" alt="Digital Art - Babe 4" class="gd-gallery-image art">
             </div>
 
-            <!-- REPLACE: swap this placeholder div with an <img> tag when ready -->
             <div class="gd-gallery-tile">
-              <div class="gd-gallery-image art">Digital Art 2</div>
-              <p class="gd-gallery-caption">Placeholder — artwork coming soon</p>
+              <img src="/artworks/digital-art/frt y.jpg" alt="Digital Art - Frt Y" class="gd-gallery-image art">
             </div>
 
-            <!-- REPLACE: swap this placeholder div with an <img> tag when ready -->
             <div class="gd-gallery-tile">
-              <div class="gd-gallery-image art">Digital Art 3</div>
-              <p class="gd-gallery-caption">Placeholder — artwork coming soon</p>
+              <img src="/artworks/digital-art/Kla.jpg" alt="Digital Art - Kla" class="gd-gallery-image art">
+            </div>
+
+            <div class="gd-gallery-tile">
+              <img src="/artworks/digital-art/retro.jpg" alt="Digital Art - Retro" class="gd-gallery-image art">
             </div>
           </div>
         </div>
