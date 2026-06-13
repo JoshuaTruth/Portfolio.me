@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Rwendeire Joshua Truth — Graphic Design Portfolio. Logos, brand identities, social media designs, and digital art."
+    />
+
+    <title>Graphic Design — Rwendeire Joshua Truth</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/src/style.css" />
+    <style>
+      /* Graphic Design Page Styles */
+      .gd-hero {
+        padding: var(--space-3xl) 0;
+        background: var(--c-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .gd-hero__content {
+        max-width: 600px;
+      }
+
+      .gd-hero__eyebrow {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--c-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 1rem;
+      }
+
+      .gd-hero__title {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--c-dark);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .gd-hero__subtitle {
+        font-size: 1.125rem;
+        color: var(--c-text-muted);
+        line-height: 1.6;
+      }
+
+      /* Section styles */
+      .gd-section {
+        padding: var(--space-3xl) 0;
+      }
+
+      .gd-section__title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--c-dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .gd-section__subtitle {
+        font-size: 1.125rem;
+        color: var(--c-text-muted);
+        margin-bottom: var(--space-2xl);
+        line-height: 1.6;
+      }
+
+      /* Branding tiles grid */
+      .gd-branding-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: var(--space-lg);
+        margin-bottom: var(--space-3xl);
+      }
+
+      @media (max-width: 768px) {
+        .gd-branding-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Card styles */
+      .gd-card {
+        background: var(--c-white);
+        border: 1px solid #dde3ea;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .gd-card:hover {
+        box-shadow: var(--shadow-md);
+      }
+
+      /* Card header (thumbnail + title) */
+      .gd-card__header {
+        padding: var(--space-lg);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .gd-card__info {
+        flex: 1;
+      }
+
+      .gd-card__title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--c-dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .gd-card__description {
+        font-size: 0.95rem;
+        color: var(--c-text-muted);
+        line-height: 1.5;
+      }
+
+      /* Chevron toggle */
+      .gd-card__toggle {
+        font-size: 1.5rem;
+        color: var(--c-text-muted);
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+        margin-left: var(--space-sm);
+      }
+
+      .gd-card__toggle.open {
+        transform: rotate(180deg);
+      }
+
+      /* Card content (expandable) */
+      .gd-card__content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background: #fafbfc;
+      }
+
+      .gd-card__content.open {
+        max-height: 2000px;
+      }
+
+      .gd-card__body {
+        padding: 0 var(--space-lg) var(--space-lg);
+      }
+
+      /* Brand detail sections */
+      .gd-detail-section {
+        margin-bottom: var(--space-lg);
+      }
+
+      .gd-detail-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .gd-detail-label {
+        font-size: 0.875rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--c-text-muted);
+        margin-bottom: 0.75rem;
+      }
+
+      .gd-detail-text {
+        font-size: 0.95rem;
+        color: var(--c-text);
+        line-height: 1.6;
+      }
+
+      /* Logo placeholder */
+      .gd-logo-placeholder {
+        background: #e8eef4;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        color: var(--c-text-muted);
+        font-size: 0.95rem;
+        text-align: center;
+      }
+
+      /* Colour palette */
+      .gd-palette {
+        display: flex;
+        gap: var(--space-sm);
+        flex-wrap: wrap;
+      }
+
+      .gd-colour-swatch {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+        background: #ddd;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        color: var(--c-text-muted);
+        text-align: center;
+        padding: 4px;
+        box-sizing: border-box;
+      }
+
+      /* Typography section */
+      .gd-typography {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md);
+      }
+
+      @media (max-width: 640px) {
+        .gd-typography {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .gd-typeface-box {
+        background: #f0f4f8;
+        padding: var(--space-md);
+        border-radius: 8px;
+        text-align: center;
+        color: var(--c-text-muted);
+        font-size: 0.95rem;
+      }
+
+      /* Mockups grid */
+      .gd-mockups {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-md);
+      }
+
+      @media (max-width: 768px) {
+        .gd-mockups {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .gd-mockups {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .gd-mockup-placeholder {
+        background: #e8eef4;
+        aspect-ratio: 1;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--c-text-muted);
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      /* Guidelines placeholder */
+      .gd-guidelines-placeholder {
+        background: #f0f4f8;
+        padding: var(--space-lg);
+        border-radius: 8px;
+        text-align: center;
+        color: var(--c-text-muted);
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Social media & art grids */
+      .gd-gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-md);
+        margin-bottom: var(--space-3xl);
+      }
+
+      @media (max-width: 1024px) {
+        .gd-gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .gd-gallery-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Gallery tile */
+      .gd-gallery-tile {
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .gd-gallery-tile:hover {
+        transform: scale(1.02);
+      }
+
+      .gd-gallery-tile:hover .gd-gallery-image {
+        box-shadow: var(--shadow-md);
+      }
+
+      .gd-gallery-image {
+        width: 100%;
+        aspect-ratio: 1;
+        background: #f0f4f8;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--c-text-muted);
+        font-size: 0.95rem;
+        margin-bottom: var(--space-sm);
+        transition: all 0.3s ease;
+      }
+
+      .gd-gallery-image.social {
+        background: #e8f4f4;
+      }
+
+      .gd-gallery-image.art {
+        background: #f0eef5;
+      }
+
+      .gd-gallery-caption {
+        font-size: 0.875rem;
+        color: var(--c-text-muted);
+        text-align: center;
+      }
+
+      /* Divider */
+      .gd-divider {
+        width: 100%;
+        height: 1px;
+        background: #dde3ea;
+        margin: var(--space-3xl) 0;
+      }
+
+      /* CTA section */
+      .gd-cta {
+        text-align: center;
+        padding: var(--space-3xl) 0;
+      }
+
+      .gd-cta__title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--c-dark);
+        margin-bottom: 1rem;
+      }
+
+      .gd-cta__text {
+        font-size: 1.125rem;
+        color: var(--c-text-muted);
+        margin-bottom: var(--space-lg);
+        line-height: 1.6;
+      }
+
+      .gd-cta__button {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- Navigation -->
+    <header id="header" class="header">
+      <div class="container header__inner">
+        <a href="/" class="header__logo" aria-label="Home">
+          <img src="/unnamed.jpg" alt="Joshua Truth" class="header__logo-img" width="40" height="40" />
+        </a>
+
+        <nav class="header__nav" id="main-nav" aria-label="Main navigation">
+          <a href="/#about" class="header__link">About</a>
+          <a href="/#work" class="header__link">Work</a>
+          <a href="/#skills" class="header__link">Skills</a>
+          <a href="/#experience" class="header__link">Experience</a>
+          <a href="/graphic-design.html" class="header__link">Graphic Design</a>
+          <a href="/#contact" class="header__link">Contact</a>
+        </nav>
+
+        <button
+          id="menu-toggle"
+          class="header__menu-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+      <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+        <a href="/#about" class="mobile-menu__link">About</a>
+        <a href="/#work" class="mobile-menu__link">Work</a>
+        <a href="/#skills" class="mobile-menu__link">Skills</a>
+        <a href="/#experience" class="mobile-menu__link">Experience</a>
+        <a href="/graphic-design.html" class="mobile-menu__link">Graphic Design</a>
+        <a href="/#contact" class="mobile-menu__link">Contact</a>
+      </nav>
+    </div>
+
+    <main>
+      <!-- Hero -->
+      <section class="section gd-hero">
+        <div class="container">
+          <div class="gd-hero__content">
+            <p class="gd-hero__eyebrow">Creative Work</p>
+            <h1 class="gd-hero__title">Graphic Design</h1>
+            <p class="gd-hero__subtitle">
+              Logos, brand identities, social media, and digital art — crafted for Ugandan businesses and communities.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Logo & Branding Section -->
+      <section class="section gd-section">
+        <div class="container">
+          <h2 class="gd-section__title">Logo & Branding</h2>
+          <p class="gd-section__subtitle">Brand identities built for clarity and recognition.</p>
+
+          <div class="gd-branding-grid">
+            <!-- REPLACE: The Plug branding tile -->
+            <div class="gd-card" data-card="the-plug">
+              <div class="gd-card__header" onclick="toggleCard(this)">
+                <div class="gd-card__info">
+                  <h3 class="gd-card__title">The Plug</h3>
+                  <p class="gd-card__description">Hyperlocal e-commerce brand built for Ugandan vendors.</p>
+                </div>
+                <div class="gd-card__toggle">›</div>
+              </div>
+
+              <div class="gd-card__content">
+                <div class="gd-card__body">
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Description</div>
+                    <p class="gd-detail-text">
+                      Complete brand identity for The Plug — a hyperlocal marketplace platform connecting local vendors with nearby customers in Uganda.
+                    </p>
+                  </div>
+
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Deliverables</div>
+                    <p class="gd-detail-text">Logo design · Colour palette · Typography system · Brand mockups · Usage guidelines</p>
+                  </div>
+
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Tools</div>
+                    <p class="gd-detail-text">Figma · Canva</p>
+                  </div>
+
+                  <!-- REPLACE: insert logo file here -->
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Logo / Main Mark</div>
+                    <div class="gd-logo-placeholder">Logo / Main Mark</div>
+                  </div>
+
+                  <!-- REPLACE: update with actual brand hex colours -->
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Colour Palette</div>
+                    <div class="gd-palette">
+                      <div class="gd-colour-swatch">Colour 1</div>
+                      <div class="gd-colour-swatch">Colour 2</div>
+                      <div class="gd-colour-swatch">Colour 3</div>
+                    </div>
+                  </div>
+
+                  <!-- REPLACE: insert font name and sample -->
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Typography</div>
+                    <div class="gd-typography">
+                      <div class="gd-typeface-box">Primary Typeface</div>
+                      <div class="gd-typeface-box">Secondary Typeface</div>
+                    </div>
+                  </div>
+
+                  <!-- REPLACE: insert brand mockup images -->
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Mockups</div>
+                    <div class="gd-mockups">
+                      <div class="gd-mockup-placeholder">Mockup 1</div>
+                      <div class="gd-mockup-placeholder">Mockup 2</div>
+                      <div class="gd-mockup-placeholder">Mockup 3</div>
+                    </div>
+                  </div>
+
+                  <!-- REPLACE: link to PDF or embed guidelines -->
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Brand Guidelines Document</div>
+                    <div class="gd-guidelines-placeholder">Brand Guidelines Document</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- REPLACE: Voltaris branding tile -->
+            <div class="gd-card" data-card="voltaris">
+              <div class="gd-card__header" onclick="toggleCard(this)">
+                <div class="gd-card__info">
+                  <h3 class="gd-card__title">Voltaris</h3>
+                  <p class="gd-card__description">Brand identity for Voltaris.</p>
+                </div>
+                <div class="gd-card__toggle">›</div>
+              </div>
+
+              <div class="gd-card__content">
+                <div class="gd-card__body">
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Description</div>
+                    <p class="gd-detail-text">
+                      Complete brand identity for Voltaris.
+                    </p>
+                  </div>
+
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Deliverables</div>
+                    <p class="gd-detail-text">Logo design · Colour palette · Typography system · Brand mockups · Usage guidelines</p>
+                  </div>
+
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Tools</div>
+                    <p class="gd-detail-text">Figma · Canva</p>
+                  </div>
+
+                  <!-- REPLACE: insert Voltaris logo file here -->
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Logo / Main Mark</div>
+                    <div class="gd-logo-placeholder">Logo / Main Mark</div>
+                  </div>
+
+                  <!-- REPLACE: update with actual Voltaris brand colours -->
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Colour Palette</div>
+                    <div class="gd-palette">
+                      <div class="gd-colour-swatch">Colour 1</div>
+                      <div class="gd-colour-swatch">Colour 2</div>
+                      <div class="gd-colour-swatch">Colour 3</div>
+                    </div>
+                  </div>
+
+                  <!-- REPLACE: insert font name and sample -->
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Typography</div>
+                    <div class="gd-typography">
+                      <div class="gd-typeface-box">Primary Typeface</div>
+                      <div class="gd-typeface-box">Secondary Typeface</div>
+                    </div>
+                  </div>
+
+                  <!-- REPLACE: insert Voltaris mockup images -->
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Mockups</div>
+                    <div class="gd-mockups">
+                      <div class="gd-mockup-placeholder">Mockup 1</div>
+                      <div class="gd-mockup-placeholder">Mockup 2</div>
+                      <div class="gd-mockup-placeholder">Mockup 3</div>
+                    </div>
+                  </div>
+
+                  <!-- REPLACE: link to Voltaris guidelines PDF or embed -->
+                  <div class="gd-detail-section">
+                    <div class="gd-detail-label">Brand Guidelines Document</div>
+                    <div class="gd-guidelines-placeholder">Brand Guidelines Document</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container"><div class="gd-divider"></div></div>
+
+      <!-- Social Media Designs Section -->
+      <section class="section gd-section">
+        <div class="container">
+          <h2 class="gd-section__title">Social Media Designs</h2>
+          <p class="gd-section__subtitle">Graphics built for engagement — for brands, events, and communities.</p>
+
+          <div class="gd-gallery-grid">
+            <!-- REPLACE: swap this placeholder div with an <img> tag when ready -->
+            <div class="gd-gallery-tile">
+              <div class="gd-gallery-image social">Social Media Design 1</div>
+              <p class="gd-gallery-caption">Placeholder — image coming soon</p>
+            </div>
+
+            <!-- REPLACE: swap this placeholder div with an <img> tag when ready -->
+            <div class="gd-gallery-tile">
+              <div class="gd-gallery-image social">Social Media Design 2</div>
+              <p class="gd-gallery-caption">Placeholder — image coming soon</p>
+            </div>
+
+            <!-- REPLACE: swap this placeholder div with an <img> tag when ready -->
+            <div class="gd-gallery-tile">
+              <div class="gd-gallery-image social">Social Media Design 3</div>
+              <p class="gd-gallery-caption">Placeholder — image coming soon</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container"><div class="gd-divider"></div></div>
+
+      <!-- Digital Art Section -->
+      <section class="section gd-section">
+        <div class="container">
+          <h2 class="gd-section__title">Digital Art</h2>
+          <p class="gd-section__subtitle">Illustrations, visual concepts, and creative explorations.</p>
+
+          <div class="gd-gallery-grid">
+            <!-- REPLACE: swap this placeholder div with an <img> tag when ready -->
+            <div class="gd-gallery-tile">
+              <div class="gd-gallery-image art">Digital Art 1</div>
+              <p class="gd-gallery-caption">Placeholder — artwork coming soon</p>
+            </div>
+
+            <!-- REPLACE: swap this placeholder div with an <img> tag when ready -->
+            <div class="gd-gallery-tile">
+              <div class="gd-gallery-image art">Digital Art 2</div>
+              <p class="gd-gallery-caption">Placeholder — artwork coming soon</p>
+            </div>
+
+            <!-- REPLACE: swap this placeholder div with an <img> tag when ready -->
+            <div class="gd-gallery-tile">
+              <div class="gd-gallery-image art">Digital Art 3</div>
+              <p class="gd-gallery-caption">Placeholder — artwork coming soon</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="section gd-cta">
+        <div class="container">
+          <h2 class="gd-cta__title">Want to work together?</h2>
+          <p class="gd-cta__text">I'm available for freelance design projects — branding, social media, and digital content.</p>
+          <div class="gd-cta__button">
+            <a href="/#contact" class="btn btn--primary">
+              <span>Get In Touch</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span class="footer__copy">© 2025 Rwendeire Joshua Truth</span>
+        <a href="mailto:rwendeirejoshuatruth@gmail.com" class="footer__email">
+          rwendeirejoshuatruth@gmail.com
+        </a>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script type="module" src="/src/main.js"></script>
+
+    <script>
+      function toggleCard(header) {
+        const card = header.closest('.gd-card');
+        const content = card.querySelector('.gd-card__content');
+        const toggle = header.querySelector('.gd-card__toggle');
+
+        content.classList.toggle('open');
+        toggle.classList.toggle('open');
+      }
+
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+          const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', !isExpanded);
+          mobileMenu.setAttribute('aria-hidden', isExpanded);
+        });
+
+        // Close menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('.mobile-menu__link');
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
