@@ -274,6 +274,75 @@ function initMobileMenu() {
   });
 }
 
+/* ---- Portfolio selection modal ---- */
+function initPortfolioModal(lenis) {
+  const modal = document.getElementById('portfolio-modal');
+  const openBtn = document.getElementById('view-work-btn');
+  if (!modal || !openBtn) return;
+
+  const sheet = modal.querySelector('.portfolio-modal__sheet');
+  const closeEls = modal.querySelectorAll('[data-close]');
+  const tiles = modal.querySelectorAll('.portfolio-tile[data-animate]');
+  const gsap = window.gsap;
+
+  const open = () => {
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (lenis && lenis !== null && typeof lenis.stop === 'function') lenis.stop();
+    // subtle entrance
+    sheet.style.transform = 'translateY(0) scale(1)';
+
+    // animate tiles if GSAP available
+    if (gsap && tiles && tiles.length) {
+      gsap.fromTo(
+        tiles,
+        { y: 18, opacity: 0, scale: 0.98 },
+        { y: 0, opacity: 1, scale: 1, stagger: 0.08, duration: 0.45, ease: 'power3.out' }
+      );
+    }
+  };
+
+  const close = () => {
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lenis && lenis !== null && typeof lenis.start === 'function') lenis.start();
+    sheet.style.transform = 'translateY(12px) scale(0.99)';
+  };
+
+  openBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    open();
+  });
+
+  closeEls.forEach((el) => el.addEventListener('click', close));
+
+  // Smooth-scroll when a modal tile is clicked, then close modal
+  modal.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      const target = document.querySelector(href);
+      e.preventDefault();
+      close();
+
+      // Wait a tick for modal to close then scroll
+      setTimeout(() => {
+        if (target) {
+          if (lenis && typeof lenis.scrollTo === 'function') {
+            lenis.scrollTo(target, { offset: -72, duration: 1.0 });
+          } else {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            window.scrollBy(0, -72);
+          }
+        }
+      }, 260);
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') close();
+  });
+}
+
 /* ---- Contact form — FormSubmit → rwendeirejoshuatruth@gmail.com ---- */
 function initContactForm() {
   const form = document.getElementById('contact-form');
@@ -345,6 +414,7 @@ function init() {
   initGSAPAnimations();
   initHeader(lenis);
   initMobileMenu();
+  initPortfolioModal(lenis);
   initContactForm();
 }
 

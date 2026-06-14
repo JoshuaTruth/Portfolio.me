@@ -34,7 +34,7 @@
           <a href="#work" class="header__link">Work</a>
           <a href="#skills" class="header__link">Skills</a>
           <a href="#experience" class="header__link">Experience</a>
-          <a href="/graphic-design.html" class="header__link">Graphic Design</a>
+          <a href="#graphic-design" class="header__link">Graphic Design</a>
           <a href="#contact" class="header__link">Contact</a>
         </nav>
 
@@ -58,7 +58,7 @@
         <a href="#work" class="mobile-menu__link">Work</a>
         <a href="#skills" class="mobile-menu__link">Skills</a>
         <a href="#experience" class="mobile-menu__link">Experience</a>
-        <a href="/graphic-design.html" class="mobile-menu__link">Graphic Design</a>
+        <a href="#graphic-design" class="mobile-menu__link">Graphic Design</a>
         <a href="#contact" class="mobile-menu__link">Contact</a>
       </nav>
     </div>
@@ -95,7 +95,7 @@
                 real problems in Uganda and beyond.
               </p>
               <div class="hero__actions">
-                <a href="#work" class="btn btn--primary">
+                <a href="#" id="view-work-btn" class="btn btn--primary">
                   <span>View My Work</span>
                 </a>
                 <a href="#contact" class="btn btn--secondary">
@@ -160,7 +160,71 @@
         </div>
       </section>
 
-      <!-- Projects -->
+      <!-- Graphic Design (in-page preview) -->
+      <section id="graphic-design" class="section gd-section">
+        <div class="container">
+        <h2 class="section__title" data-fade>Graphics Design</h2>
+        <p class="gd-section__subtitle" data-fade>Branding, social media designs, marketing materials, and visual communication projects.</p>
+
+        <div class="gd-branding-grid" data-fade>
+          <div class="gd-card">
+            <div class="gd-card__header">
+              <div class="gd-card__info">
+                <h3 class="gd-card__title">Featured — The Plug</h3>
+                <p class="gd-card__description">Branding and identity work for a Ugandan e-commerce platform.</p>
+              </div>
+            </div>
+            <div class="gd-card__content open">
+              <div class="gd-card__body">
+                <div class="gd-gallery-grid">
+                  <div class="gd-gallery-tile">
+                    <img src="/artworks/others/kdg.jfif" alt="Featured Graphic" class="gd-gallery-image">
+                  </div>
+                  <div class="gd-gallery-tile">
+                    <div class="gd-gallery-image">Brand mockup</div>
+                  </div>
+                  <div class="gd-gallery-tile">
+                    <div class="gd-gallery-image">Social post preview</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gd-cta" data-fade>
+          <a href="/graphic-design.html" class="btn btn--secondary">View Full Graphics Portfolio</a>
+        </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="section skills">
+        <div class="container">
+        <h2 class="section__title" data-fade>What I Bring</h2>
+
+        <div class="skills__grid">
+          <div class="skills__category" data-fade>
+            <h3 class="skills__category-title">UI/UX Design</h3>
+            <p class="skills__category-list">
+              Figma, Wireframing, Prototyping, Design Systems
+            </p>
+          </div>
+
+
+          <div class="skills__category" data-fade>
+            <h3 class="skills__category-title">Collaboration</h3>
+            <p class="skills__category-list">
+              Git, Canva, Google Workspace
+            </p>
+          </div>
+
+          
+        </div>
+        </div>
+      </section>
+
+      <!-- Selected Work (Projects) -->
       <section id="work" class="section projects section--alt">
         <div class="container">
         <h2 class="section__title" data-fade>Selected Work</h2>
@@ -231,32 +295,6 @@
               View on Figma ↗
             </a>
           </article>
-        </div>
-        </div>
-      </section>
-
-      <!-- Skills -->
-      <section id="skills" class="section skills">
-        <div class="container">
-        <h2 class="section__title" data-fade>What I Bring</h2>
-
-        <div class="skills__grid">
-          <div class="skills__category" data-fade>
-            <h3 class="skills__category-title">UI/UX Design</h3>
-            <p class="skills__category-list">
-              Figma, Wireframing, Prototyping, Design Systems
-            </p>
-          </div>
-
-
-          <div class="skills__category" data-fade>
-            <h3 class="skills__category-title">Collaboration</h3>
-            <p class="skills__category-list">
-              Git, Canva, Google Workspace
-            </p>
-          </div>
-
-          
         </div>
         </div>
       </section>
@@ -386,6 +424,40 @@
         </div>
       </section>
     </main>
+
+    <!-- Portfolio selection modal -->
+    <div id="portfolio-modal" class="portfolio-modal" aria-hidden="true">
+      <div class="portfolio-modal__overlay" data-close></div>
+      <div class="portfolio-modal__sheet">
+        <button class="portfolio-modal__close" aria-label="Close portfolio selector" data-close>✕</button>
+        <div class="container">
+          <h2 class="section__title">Choose a portfolio</h2>
+          <p class="gd-section__subtitle">Pick which body of work you'd like to explore.</p>
+
+          <div class="portfolio-tiles">
+            <a href="#graphic-design" class="portfolio-tile" data-animate>
+              <div class="portfolio-tile__media">
+                <img src="/artworks/others/kdg.jfif" alt="Graphics preview">
+              </div>
+              <div class="portfolio-tile__body">
+                <h3>Graphics Design</h3>
+                <p>Branding, social media designs, marketing materials, and visual communication projects.</p>
+              </div>
+            </a>
+
+            <a href="#work" class="portfolio-tile" data-animate>
+              <div class="portfolio-tile__media">
+                <div class="gd-gallery-image">UI Mockup</div>
+              </div>
+              <div class="portfolio-tile__body">
+                <h3>UI/UX Design</h3>
+                <p>Web interfaces, mobile app designs, user experiences, wireframes, and prototypes.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
