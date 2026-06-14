@@ -181,17 +181,50 @@
         line-height: 1.6;
       }
 
-      /* Logo placeholder */
-      .gd-logo-placeholder {
-        background: #e8eef4;
-        height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px;
-        color: var(--c-text-muted);
+      .gd-detail-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .gd-detail-list li {
+        position: relative;
+        padding-left: 1.1rem;
         font-size: 0.95rem;
-        text-align: center;
+        color: var(--c-text);
+        line-height: 1.7;
+      }
+
+      .gd-detail-list li::before {
+        content: '–';
+        position: absolute;
+        left: 0;
+        color: var(--c-primary);
+        font-weight: 600;
+      }
+
+      .gd-detail-divider {
+        height: 1px;
+        background: #dde3ea;
+        margin: var(--space-lg) 0;
+      }
+
+      .gd-subsection-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--c-dark);
+        margin-bottom: var(--space-sm);
+      }
+
+      .gd-logo-image {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        background: #f0f4f8;
+        padding: var(--space-md);
+        object-fit: contain;
       }
 
       /* Colour palette */
@@ -239,17 +272,11 @@
         font-size: 0.95rem;
       }
 
-      /* Mockups grid */
+      /* Marketing mockups */
       .gd-mockups {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--space-md);
-      }
-
-      @media (max-width: 768px) {
-        .gd-mockups {
-          grid-template-columns: repeat(2, 1fr);
-        }
       }
 
       @media (max-width: 640px) {
@@ -258,16 +285,13 @@
         }
       }
 
-      .gd-mockup-placeholder {
-        background: #e8eef4;
-        aspect-ratio: 1;
+      .gd-mockup-image {
+        width: 100%;
+        height: auto;
         border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--c-text-muted);
-        font-size: 0.9rem;
-        text-align: center;
+        display: block;
+        object-fit: cover;
+        background: #e8eef4;
       }
 
       /* Guidelines placeholder */
@@ -461,15 +485,12 @@
               <div class="gd-card__content">
                 <div class="gd-card__body">
                   <div class="gd-detail-section">
-                    <div class="gd-detail-label">Description</div>
-                    <p class="gd-detail-text">
-                      Complete brand identity for The Plug — a hyperlocal marketplace platform connecting local vendors with nearby customers in Uganda.
-                    </p>
-                  </div>
-
-                  <div class="gd-detail-section">
                     <div class="gd-detail-label">Deliverables</div>
-                    <p class="gd-detail-text">Logo design · Colour palette · Typography system · Brand mockups · Usage guidelines</p>
+                    <ul class="gd-detail-list">
+                      <li>Logo Design</li>
+                      <li>Brand Colours</li>
+                      <li>Marketing Collateral</li>
+                    </ul>
                   </div>
 
                   <div class="gd-detail-section">
@@ -477,45 +498,44 @@
                     <p class="gd-detail-text">Figma · Canva</p>
                   </div>
 
-                  <!-- REPLACE: insert logo file here -->
+                  <div class="gd-detail-divider"></div>
+
                   <div class="gd-detail-section">
-                    <div class="gd-detail-label">Logo / Main Mark</div>
-                    <div class="gd-logo-placeholder">Logo / Main Mark</div>
+                    <h4 class="gd-subsection-title">Logo Mark</h4>
+                    <img
+                      src="/artworks/the plug/logo mark.png"
+                      alt="The Plug logo mark"
+                      class="gd-logo-image"
+                    />
                   </div>
 
-                  <!-- REPLACE: update with actual brand hex colours -->
+                  <div class="gd-detail-divider"></div>
+
                   <div class="gd-detail-section">
-                    <div class="gd-detail-label">Colour Palette</div>
+                    <h4 class="gd-subsection-title">Brand Colours</h4>
                     <div class="gd-palette">
-                      <div class="gd-colour-swatch">Colour 1</div>
-                      <div class="gd-colour-swatch">Colour 2</div>
-                      <div class="gd-colour-swatch">Colour 3</div>
+                      <div class="gd-colour-swatch" style="background: #2563eb; color: #fff;">Primary</div>
+                      <div class="gd-colour-swatch" style="background: #0f172a; color: #fff;">Secondary</div>
+                      <div class="gd-colour-swatch" style="background: #06b6d4; color: #fff;">Accent</div>
                     </div>
                   </div>
 
-                  <!-- REPLACE: insert font name and sample -->
-                  <div class="gd-detail-section">
-                    <div class="gd-detail-label">Typography</div>
-                    <div class="gd-typography">
-                      <div class="gd-typeface-box">Primary Typeface</div>
-                      <div class="gd-typeface-box">Secondary Typeface</div>
-                    </div>
-                  </div>
+                  <div class="gd-detail-divider"></div>
 
-                  <!-- REPLACE: insert brand mockup images -->
                   <div class="gd-detail-section">
-                    <div class="gd-detail-label">Mockups</div>
+                    <h4 class="gd-subsection-title">Marketing Mockups</h4>
                     <div class="gd-mockups">
-                      <div class="gd-mockup-placeholder">Mockup 1</div>
-                      <div class="gd-mockup-placeholder">Mockup 2</div>
-                      <div class="gd-mockup-placeholder">Mockup 3</div>
+                      <img
+                        src="/artworks/the plug/flyers (1).png"
+                        alt="The Plug flyer mockup 1"
+                        class="gd-mockup-image"
+                      />
+                      <img
+                        src="/artworks/the plug/flyers (2).png"
+                        alt="The Plug flyer mockup 2"
+                        class="gd-mockup-image"
+                      />
                     </div>
-                  </div>
-
-                  <!-- REPLACE: link to PDF or embed guidelines -->
-                  <div class="gd-detail-section">
-                    <div class="gd-detail-label">Brand Guidelines Document</div>
-                    <div class="gd-guidelines-placeholder">Brand Guidelines Document</div>
                   </div>
                 </div>
               </div>
@@ -526,7 +546,7 @@
               <div class="gd-card__header" onclick="toggleCard(this)">
                 <div class="gd-card__info">
                   <h3 class="gd-card__title">Voltaris</h3>
-                  <p class="gd-card__description">Brand identity for Voltaris.</p>
+                  <p class="gd-card__description">Energy and technology brand identity for modern African markets.</p>
                 </div>
                 <div class="gd-card__toggle">›</div>
               </div>
@@ -534,15 +554,12 @@
               <div class="gd-card__content">
                 <div class="gd-card__body">
                   <div class="gd-detail-section">
-                    <div class="gd-detail-label">Description</div>
-                    <p class="gd-detail-text">
-                      Complete brand identity for Voltaris.
-                    </p>
-                  </div>
-
-                  <div class="gd-detail-section">
                     <div class="gd-detail-label">Deliverables</div>
-                    <p class="gd-detail-text">Logo design · Colour palette · Typography system · Brand mockups · Usage guidelines</p>
+                    <ul class="gd-detail-list">
+                      <li>Logo Design</li>
+                      <li>Brand Colours</li>
+                      <li>Marketing Collateral</li>
+                    </ul>
                   </div>
 
                   <div class="gd-detail-section">
@@ -550,45 +567,44 @@
                     <p class="gd-detail-text">Figma · Canva</p>
                   </div>
 
-                  <!-- REPLACE: insert Voltaris logo file here -->
+                  <div class="gd-detail-divider"></div>
+
                   <div class="gd-detail-section">
-                    <div class="gd-detail-label">Logo / Main Mark</div>
-                    <div class="gd-logo-placeholder">Logo / Main Mark</div>
+                    <h4 class="gd-subsection-title">Logo Mark</h4>
+                    <img
+                      src="/artworks/voltaris/logo.png"
+                      alt="Voltaris logo mark"
+                      class="gd-logo-image"
+                    />
                   </div>
 
-                  <!-- REPLACE: update with actual Voltaris brand colours -->
+                  <div class="gd-detail-divider"></div>
+
                   <div class="gd-detail-section">
-                    <div class="gd-detail-label">Colour Palette</div>
+                    <h4 class="gd-subsection-title">Brand Colours</h4>
                     <div class="gd-palette">
-                      <div class="gd-colour-swatch">Colour 1</div>
-                      <div class="gd-colour-swatch">Colour 2</div>
-                      <div class="gd-colour-swatch">Colour 3</div>
+                      <div class="gd-colour-swatch" style="background: #1e40af; color: #fff;">Primary</div>
+                      <div class="gd-colour-swatch" style="background: #111827; color: #fff;">Secondary</div>
+                      <div class="gd-colour-swatch" style="background: #f59e0b; color: #fff;">Accent</div>
                     </div>
                   </div>
 
-                  <!-- REPLACE: insert font name and sample -->
-                  <div class="gd-detail-section">
-                    <div class="gd-detail-label">Typography</div>
-                    <div class="gd-typography">
-                      <div class="gd-typeface-box">Primary Typeface</div>
-                      <div class="gd-typeface-box">Secondary Typeface</div>
-                    </div>
-                  </div>
+                  <div class="gd-detail-divider"></div>
 
-                  <!-- REPLACE: insert Voltaris mockup images -->
                   <div class="gd-detail-section">
-                    <div class="gd-detail-label">Mockups</div>
+                    <h4 class="gd-subsection-title">Marketing Mockups</h4>
                     <div class="gd-mockups">
-                      <div class="gd-mockup-placeholder">Mockup 1</div>
-                      <div class="gd-mockup-placeholder">Mockup 2</div>
-                      <div class="gd-mockup-placeholder">Mockup 3</div>
+                      <img
+                        src="/artworks/voltaris/flyers (1).png"
+                        alt="Voltaris flyer mockup 1"
+                        class="gd-mockup-image"
+                      />
+                      <img
+                        src="/artworks/voltaris/flyers (2).jpg"
+                        alt="Voltaris flyer mockup 2"
+                        class="gd-mockup-image"
+                      />
                     </div>
-                  </div>
-
-                  <!-- REPLACE: link to Voltaris guidelines PDF or embed -->
-                  <div class="gd-detail-section">
-                    <div class="gd-detail-label">Brand Guidelines Document</div>
-                    <div class="gd-guidelines-placeholder">Brand Guidelines Document</div>
                   </div>
                 </div>
               </div>
